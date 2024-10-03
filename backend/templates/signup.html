@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style1.css') }}"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <div class="bdy">
+      <!-- Navbar -->
+      <div class="navbar">
+        <div class="logo">
+          <img
+            src="{{ url_for('static', filename='images/Jk House price1.png') }}"
+            alt="Logo"
+            style="height: 70px"
+          />
+        </div>
+        <h1 class="hding">House Price Predictor</h1>
+        <div class="nav-links">
+          <p>Location - Bengaluru</p>
+          <a href="#" onclick="showLogin()">Login</a>
+          <!-- Changed to Login -->
+        </div>
+      </div>
+
+      <div class="container">
+        <h1>Sign Up</h1>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input type="text" id="phone" name="phone" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <button onclick="onSignup()">Sign Up</button>
+        <p style="color: black">
+          Already have an account?
+          <a href="#" onclick="showLogin()">Login here</a>
+        </p>
+        <!-- Changed to Login -->
+      </div>
+    </div>
+
+    <script>
+      function onSignup() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const password = document.getElementById("password").value;
+
+        $.ajax({
+          url: "/signup",
+          type: "POST",
+          contentType: "application/json",
+          data: JSON.stringify({ name, email, phone, password }),
+          success: function (response) {
+            alert(response.message);
+            // Redirect to the login page or the home page
+            window.location.href = "/"; // Redirect to login page after signup
+          },
+          error: function (xhr) {
+            alert(xhr.responseJSON.error);
+          },
+        });
+      }
+
+      function showLogin() {
+        window.location.href = "/"; // Redirect to login page
+      }
+    </script>
+  </body>
+</html>

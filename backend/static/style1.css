@@ -1,0 +1,131 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  height: 100vh;
+  margin: 0;
+}
+
+.bdy {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 160px;
+}
+
+.container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 700px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+p {
+  margin-top: 15px;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%; /* Make the navbar full width */
+  top: 0; /* Position at the top */
+}
+.navbar .logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 15px;
+  width: 100px;
+}
+.navbar .nav-links {
+  display: flex;
+  gap: 25px;
+  margin-right: 15px;
+}
+.navbar a,
+p {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+.navbar a {
+  margin-top: 15px;
+}
+.navbar a:hover {
+  text-decoration: underline;
+}
+.container {
+  margin-top: 40px; /* Add margin to prevent overlap with the navbar */
+  margin-left: 20px; /* Add some left margin */
+  margin-right: 20px; /* Add some right margin */
+}
+.form-group {
+  margin-bottom: 15px; /* Add some space between form groups */
+}
+.hding {
+  color: white;
+}
+.hding1 {
+  text-align: center;
+  margin-top: 100px;
+}
+.hb {
+  background-repeat: no-repeat;
+  height: 200px; /* Adjust height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black; /* Text color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optional shadow for text */
+  font-size: 24px; /* Adjust font size */
+  margin-top: 40px; /* To ensure it appears below the navbar */
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style1.css') }}"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="bdy">
+        <!-- Navbar -->
+    <div class="navbar">
+      <div class="logo">
+        <img
+          src="{{ url_for('static', filename='images/Jk House price1.png') }}"
+          alt="Logo"
+          style="height: 70px"
+        />
+      </div>
+      <h1 class="hding">House Price Predictor</h1>
+      <div class="nav-links">
+        <p>Location - Bengaluru</p>
+        <a href="#" onclick="showSignup()">Sign Up</a>
+      </div>
+    </div>
+    
+    <div class="hb" style="text-align: center;">
+        <img src="{{ url_for('static', filename='images/house.jpg') }}" alt="img" style="width: 500px;">
+    </div>
+    <!-- Login Form -->
+    <div class="container">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" required />
+      </div>
+      <button onclick="login()">Login</button>
+      <p style="color: black;"">
+        Don't have an account? <a href="#" onclick="showSignup()">Sign up</a>
+      </p>
+    </div>
+    </div>
+    <div class="hding1">
+        <h1>
+            House hunting made easy: Get accurate price predictions with just a tap!
+        </h1>
+    </div>
+
+    <script>
+      function login() {
+        var email = $("#email").val();
+        var password = $("#password").val();
+
+        $.ajax({
+          url: "http://127.0.0.1:3001/login",
+          type: "POST",
+          contentType: "application/json",
+          data: JSON.stringify({ email: email, password: password }),
+          success: function (data) {
+            alert(data.message);
+            window.location.href = "http://127.0.0.1:3001/index.html"; // Redirect to the index page after successful login
+          },
+          error: function (xhr) {
+            alert(xhr.responseJSON.error);
+          },
+        });
+      }
+      function showSignup() {
+        window.location.href = "http://127.0.0.1:3001/signup.html";
+      }
+    </script>
+  </body>
+</html>
